@@ -1,0 +1,448 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "SoupWeb API Testi",
+    "dateExported": "2023-06-18T00:26:35.560Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9c44eed0-be47-4e6a-b648-b9bb8953bdc2",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Kayıt Olabilme",
+            "url": "/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-06-15T16:27:21.145Z",
+            "modified": "2023-06-17T09:59:06.970Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\": \"AtakanTurgut7\",\n  \"password\": \"a1\",\n  \"profilePictureUrl\" : \"profileurl.com\",\n  \"coverPictureUrl\" : \"coverPicture.com\",\n  \"bio\" : \"Öğrenci\",\n  \"userMail\" : \"atu@soupweb.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7323be15-1a35-40ef-81d3-f660cb49ae73",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Giriş Yapabilme",
+            "url": "/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-15T16:27:27.940Z",
+            "modified": "2023-06-16T23:32:33.142Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\": \"AtakanTurgut2\",\n  \"password\": \"a1\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8c20885b-ecd2-4729-9ff8-1b38aa06edb0",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Arama Yapabilme",
+            "url": "/users?userName={{query}}",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-06-15T16:27:53.476Z",
+            "modified": "2023-06-17T09:59:25.019Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [
+                {
+                    "name": "userName",
+                    "value": "{{query}}",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "1fd87e63-fbe5-48db-8df6-9f97098948b0",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Gönderi Paylaşabilme",
+            "url": "/posts",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2023-06-15T16:28:07.117Z",
+            "modified": "2023-06-17T09:59:29.354Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Gönderi Başlık\",\n  \"text\": \"Gönderi\",\n  \"userId\": 1\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "set-env-var",
+                    "custom": "json.id",
+                    "action": "setto",
+                    "value": "{{postId}}"
+                }
+            ]
+        },
+        {
+            "_id": "081e6741-3001-448e-8fdf-1822cdf2adc3",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Gönderiyi Kaldırma",
+            "url": "/posts/{{postId}}",
+            "method": "DELETE",
+            "sortNum": 36250,
+            "created": "2023-06-15T16:28:12.804Z",
+            "modified": "2023-06-17T09:59:33.302Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "afd6a5e8-d991-4758-bcbb-13c0cfb08d39",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Gönderi Beğenebilme",
+            "url": "/likes",
+            "method": "POST",
+            "sortNum": 36875,
+            "created": "2023-06-15T16:28:20.996Z",
+            "modified": "2023-06-17T09:59:36.494Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userId\": 1,\n  \"postId\": 3\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "6d74a92f-ebf3-4d3d-bac7-6c146f038a4c",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Yorum Yapabilme",
+            "url": "/comments",
+            "method": "POST",
+            "sortNum": 37500,
+            "created": "2023-06-15T16:29:07.686Z",
+            "modified": "2023-06-17T09:59:40.022Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": " {\n    \"postId\" : 2,\n    \"userId\" : 1,\n    \"text\": \"Aşırı iyi \"\n} ",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7cdf1a00-973c-4969-8e46-6a51b0a8275f",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Yorumları Görebilme",
+            "url": "/comments",
+            "method": "GET",
+            "sortNum": 38750,
+            "created": "2023-06-15T16:29:15.336Z",
+            "modified": "2023-06-17T09:59:44.181Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8d7ba393-0283-4d43-8f9d-cbc09c9d3806",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Profil Fotoğrafını Değiştirebilme",
+            "url": "/users/{{userId}}",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-06-15T16:29:27.037Z",
+            "modified": "2023-06-17T09:59:48.298Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\": \"AtakanTurgut3\",\n  \"password\": \"a1\",\n  \"profilePictureUrl\" : \"profilePhotos.com\",\n  \"coverPictureUrl\" : \"coverPicture.com\",\n  \"bio\" : \"null\",\n  \"userMail\" : \"ozcan@soupweb.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "df713e6a-0544-483d-986b-bbb5a0e1559b",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Profil Kapak Fotoğrafını Değiştirme ",
+            "url": "/users/{{userId}}",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-06-15T16:29:43.061Z",
+            "modified": "2023-06-17T09:59:52.526Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\": \"AtakanTurgut3\",\n  \"password\": \"a1\",\n  \"profilePictureUrl\" : \"profilePhotos.com\",\n  \"coverPictureUrl\" : \"coverPhotos.com\",\n  \"bio\" : \"null\",\n  \"userMail\" : \"ozcan@soupweb.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "918829f8-1928-4dae-ad25-be1684e039af",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Profil Düzenleme ",
+            "url": "/users/{{userId}}",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-06-15T16:29:55.821Z",
+            "modified": "2023-06-17T09:59:56.294Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\": \"AtakanTurgut33\",\n  \"password\": \"a1\",\n  \"profilePictureUrl\" : \"profilePhotos.com\",\n  \"coverPictureUrl\" : \"coverPicture.com\",\n  \"bio\" : \"Berber\",\n  \"userMail\" : \"ozcan@soupweb.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ab48e836-6994-4878-a903-4ab530eed0ca",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Şifre Değiştirebilme",
+            "url": "/users/{{userId}}",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2023-06-15T16:30:17.573Z",
+            "modified": "2023-06-17T09:59:59.639Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\": \"AtakanTurgut33\",\n  \"password\": \"a123\",\n  \"profilePictureUrl\" : \"profilePhotos.com\",\n  \"coverPictureUrl\" : \"coverPicture.com\",\n  \"bio\" : \"Berber\",\n  \"userMail\" : \"ozcan@soupweb.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4310fc8c-6a47-4e4f-9c74-c130d3fc3cc9",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Mail Değiştirebilme",
+            "url": "/users/{{userId}}",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2023-06-15T16:30:26.540Z",
+            "modified": "2023-06-17T10:00:03.970Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\": \"AtakanTurgut33\",\n  \"password\": \"a123\",\n  \"profilePictureUrl\" : \"profilePhotos.com\",\n  \"coverPictureUrl\" : \"coverPicture.com\",\n  \"bio\" : \"Berber\",\n  \"userMail\" : \"attu@soupweb.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1d58a3a3-c12b-49f4-bcd0-3d2c708f6a81",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Hikaye Ekleme",
+            "url": "/stories",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2023-06-15T16:30:34.705Z",
+            "modified": "2023-06-17T10:00:07.522Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userId\": 1,\n  \"photoUrl\": \"storyURL\"\n}\n",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "set-env-var",
+                    "custom": "json.id",
+                    "action": "setto",
+                    "value": "{{storyId}}"
+                }
+            ]
+        },
+        {
+            "_id": "8cbcf7e4-3013-4068-9f3e-06152fce781e",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Hikaye Silme",
+            "url": "/stories/{{storyId}}",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2023-06-15T16:30:46.457Z",
+            "modified": "2023-06-17T10:00:11.102Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "57a83729-372a-4135-8a6b-fbe2559a9e3a",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Arkadaş Ekleme",
+            "url": "/users/{{userId}}/friends/{{friendId}}",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-06-15T16:30:59.673Z",
+            "modified": "2023-06-17T10:00:14.816Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userId\": 1,\n  \"friendId\": 2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "efe133f9-fdc7-497c-84ac-c23f9d15620f",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Arkadaş Listeleme",
+            "url": "/users/{{userId}}/friends",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-06-15T16:31:04.124Z",
+            "modified": "2023-06-17T10:00:19.464Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "09f85b90-4de3-4af8-928c-1c6aa44edc00",
+            "colId": "146f14cb-08f4-4e0c-852e-505e1871333f",
+            "containerId": "",
+            "name": "Arkadaş Silme",
+            "url": "/users/{{userId}}/friends/{{friendId}}",
+            "method": "DELETE",
+            "sortNum": 140000,
+            "created": "2023-06-15T16:31:07.272Z",
+            "modified": "2023-06-17T10:00:22.997Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjg2OTk1OTUxLCJleHAiOjE2ODY5OTcxNTF9.hCOfoZ6_QYLsXkVPqy0PgYUHRt8-Ybus-tKhfv-ybR-wRRZeDnSp0WWYcLBfcCusnGFR0fxFS1MZuBP-9OC75w"
+                }
+            ],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:8080"
+        },
+        "envId": "aebaec62-d521-4d2f-a2dc-2a9ee3d4130f"
+    }
+}

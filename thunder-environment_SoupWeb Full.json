@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "environmentName": "SoupWeb Full",
+    "dateExported": "2023-06-18T00:26:48.559Z",
+    "version": "1.0",
+    "variables": [
+        {
+            "name": "query",
+            "value": "kan"
+        },
+        {
+            "name": "postId",
+            "value": "9"
+        },
+        {
+            "name": "userId",
+            "value": "1"
+        },
+        {
+            "name": "storyId",
+            "value": "7"
+        },
+        {
+            "name": "friendId",
+            "value": "2"
+        }
+    ]
+}
